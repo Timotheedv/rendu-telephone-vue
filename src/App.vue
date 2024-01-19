@@ -1,34 +1,42 @@
-<script>
-import { RouterLink, RouterView } from 'vue-router'
-export default {
-	name: 'App'
-}
-</script>
-
 <template>
-  
+  <div class="phone-container">
+    <header>
+      <div class="logo">Your Phone</div>
+    </header>
 
-      <nav>
-        <RouterLink to="/appeler">Appeler</RouterLink>
-        <RouterLink to="/contacter">Contacts</RouterLink>
-        <RouterLink to="/}">About</RouterLink>
-        <RouterLink to="/composer">About</RouterLink>
-      </nav>
+    <nav>
+      <RouterLink to="/appeler">Appeler</RouterLink>
+      <RouterLink to="/contacter">Contacts</RouterLink>
+      <RouterLink to="/+">Ajouter contact</RouterLink>
+      <RouterLink to="/composer">Composer</RouterLink>
+    </nav>
 
-
-
-  <RouterView />
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
+.phone-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #eee; /* Background color of the phone */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
+  text-align: center;
+  padding: 1rem;
+  background-color: #fff; /* Header background color */
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  font-size: 1.5rem;
+  margin: 0 auto;
 }
 
 nav {
@@ -36,6 +44,7 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  align-content: center;
 }
 
 nav a.router-link-exact-active {
@@ -48,38 +57,13 @@ nav a.router-link-exact-active:hover {
 
 nav a {
   display: inline-block;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   border-left: 1px solid var(--color-border);
+  text-decoration: none;
+  color: #333; /* Link color */
 }
 
 nav a:first-of-type {
   border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
 }
 </style>

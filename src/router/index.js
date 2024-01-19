@@ -10,7 +10,7 @@ const router = createRouter({
   routes: [
 
     {
-      path: '/appeler',
+      path: '/Liste des appels',
       name: 'Appeler',
       component: CallView
     },

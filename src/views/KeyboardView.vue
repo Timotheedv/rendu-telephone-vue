@@ -1,33 +1,33 @@
-<script>
-import CurrentNumber from '@/components/CurrentNumber.vue';
-import KeyComponent from '@/components/KeyComponent.vue';
+<template>
+  <div>
+    <KeyComponent @key-pressed="onKeyPress" />
+  </div>
+</template>
 
+<script>
+import KeyComponent from '@/components/KeyComponent.vue';
 export default {
   components: {
-    KeyComponent, 
-    CurrentNumber,
+    KeyComponent,
   },
   data() {
     return {
-      currentNumber: '', 
+      callNumber: '',
     };
   },
   methods: {
     onKeyPress(value) {
-      this.currentNumber += value;
+      this.callNumber += value;
+
+      const matchingContact = this.findMatchingContact(this.callNumber);
+      if (matchingContact) {
+        this.callNumber = matchingContact.name;
+      }
       console.log('Key pressed:', value);
+    },
+    findMatchingContact(number) {
+      return this.contacts.find((contact) => contact.phone === number);
     },
   },
 };
 </script>
-
-<template>
-  <div>
-    <current-number :currentNumber="currentNumber" />
-    <key-component @key-pressed="onKeyPress" /> 
-  </div>
-</template>
-
-  
-  
-  
